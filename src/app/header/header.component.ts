@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  keyword = '';
+
   constructor() { }
 
   ngOnInit(): void {
+
+  }
+
+  doSearch(event: MouseEvent) {
+    console.log(event);
+    this.keyword += '!';
+  }
+
+  keywordInput(event: InputEvent) {
+    console.log(event);
+  }
+
+  wrapInput(element: HTMLInputElement) {
+    return element;
   }
 
 }

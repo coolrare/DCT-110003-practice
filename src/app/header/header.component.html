@@ -1,9 +1,37 @@
 <nav class="navbar navbar-light">
   <div class="container">
     <a class="navbar-brand" href="index.html">conduit</a>
-    <input class="form-control form-control-sm search-input" type="text" placeholder="Keyword">
-    <button class="btn btn-sm btn-primary">
+    <input [(ngModel)]="keyword" class="form-control form-control-sm search-input" type="text" placeholder="Keyword">
+
+    <!-- 補充: 不使用 ngModel，自己做出類似雙向繫結的效果 -->
+    <!-- <input
+      (input)="keyword = $event.target.value"
+      [value]="keyword"
+      class="form-control form-control-sm search-input"
+      type="text"
+      placeholder="Keyword"> -->
+
+    <!-- 補充: ngModel 實際上是屬性繫結 + 事件繫結的組合 -->
+    <!-- <input
+      [ngModel]="keyword"
+      (ngModelChange)="keyword = $event"
+      class="form-control form-control-sm search-input"
+      type="text"
+      placeholder="Keyword"> -->
+
+    <!-- 補充: 在樣板上想將變數轉型的小技巧 -->
+    <!-- <input
+      #input
+      (input)="keyword = wrapInput(input).value"
+      [value]="keyword"
+      class="form-control form-control-sm search-input"
+      type="text"
+      placeholder="Keyword"> -->
+
+    <button class="btn btn-sm btn-primary" (click)="doSearch($event)">
       <i class="ion-search"></i>
     </button>
+
+    {{ keyword }}
   </div>
 </nav>
