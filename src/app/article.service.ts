@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Article } from './article';
 
 @Injectable({
   providedIn: 'root',
@@ -66,7 +68,12 @@ export class ArticleService {
   ];
   originalArticles = this.articles;
 
-  constructor() {}
+  constructor(private httpClient: HttpClient) {}
+
+  getArticles(keyword: string = '') {
+    return this.httpClient
+      .get<Article[]>(`http://localhost:3000/articles?q=${keyword}`)
+  }
 
   filterArticles(keyword: string) {
     console.log(keyword);
