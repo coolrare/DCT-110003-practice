@@ -83,4 +83,10 @@ export class ArticleService {
     );
     console.log(this.articles);
   }
+
+  filterArticlesByKeyword(articles: Article[], keyword: string) {
+    return articles.filter(
+      (article) => article.title.indexOf(keyword) !== -1
+    );
+  }
 }

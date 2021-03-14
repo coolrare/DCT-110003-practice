@@ -10,31 +10,32 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'conduit 123';
   subtitle = 'A place to share your <u>knowledge</u>.';
-  keyword = 'test';
+  keyword = '';
 
   // articles: Article[] = this.articleService.articles;
 
   // getter
-  // get articles() {
-  //   return this.articleService.articles;
-  // }
+  get articles() {
+    return this.articleService.articles;
+  }
 
-  articles : Article[];
+ // articles : Article[];
 
   constructor(private articleService: ArticleService) {}
 
   ngOnInit() {
-    this.articleService.getArticles().subscribe((data) => {
-      console.log(data);
-      this.articles = data;
-    });
+    // this.articleService.getArticles().subscribe((data) => {
+    //   console.log(data);
+    //   this.articles = data;
+    // });
   }
 
   filterArticles(keyword: string) {
+    console.log('test');
     // console.log(keyword);
     // this.articleService.filterArticles(keyword);
-    this.articleService.getArticles(keyword).subscribe(data => {
-      this.articles = data;
-    })
+    // this.articleService.getArticles(keyword).subscribe(data => {
+    //   this.articles = data;
+    // })
   }
 }
