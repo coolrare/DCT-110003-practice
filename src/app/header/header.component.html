@@ -1,6 +1,9 @@
 <nav class="navbar navbar-light">
   <div class="container">
-    <a class="navbar-brand" href="index.html">conduit</a>
+    <a class="navbar-brand"
+     [class.highlight]="isHighlight"
+     [style.font-size.px]="fontSize"
+      href="index.html">conduit</a>
     <input [(ngModel)]="keyword" class="form-control form-control-sm search-input" type="text" placeholder="Keyword">
 
     <!-- 補充: 不使用 ngModel，自己做出類似雙向繫結的效果 -->
