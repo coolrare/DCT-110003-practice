@@ -5,6 +5,34 @@
     </li>
   </ul>
 </div>
+<!--
+<ng-container *ngFor="let article of list; let i = index; let first = first; let last = last; let odd = odd; let even = even">
+
+  <div class="post-preview"
+    *ngIf="i > 0"
+  >
+-->
+
+<div class="post-preview"
+  *ngFor="let article of list; let i = index; let first = first; let last = last; let odd = odd; let even = even">
+  <div class="post-meta">
+    <a href="profile.html">
+      <img src="http://i.imgur.com/Qr71crq.jpg" />
+    </a>
+    <div class="info">
+      <a href="profile.html" class="author">Eric Simons</a>
+      <span class="date">{{ article.createdAt }}</span>
+    </div>
+    <button class="btn btn-outline-primary btn-sm pull-xs-right">
+      <i class="ion-heart"></i> 29
+    </button>
+  </div>
+  <a href="post.html" class="preview-link">
+    <h1> ({{ i }}) {{ article.title }}</h1>
+    <p>{{ article.description }}</p>
+    <span>Read more...</span>
+  </a>
+</div>
 
 <div class="post-preview">
   <div class="post-meta">
