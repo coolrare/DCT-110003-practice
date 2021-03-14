@@ -8,7 +8,10 @@
       [style]="{ 'font-size': fontSize + 'px' }"
        href="index.html">conduit</a> -->
 
-    <input [(ngModel)]="keyword" class="form-control form-control-sm search-input" type="text" placeholder="Keyword">
+    <input
+      [(ngModel)]="keyword"
+      (ngModelChange)="changeKeyword($event)"
+      class="form-control form-control-sm search-input" type="text" placeholder="Keyword">
 
     <!-- 補充: 不使用 ngModel，自己做出類似雙向繫結的效果 -->
     <!-- <input

@@ -1,4 +1,6 @@
-<app-header (searchClick)="filterArticles($event)"></app-header>
+<app-header
+  [(keyword)]="keyword"
+  (searchClick)="filterArticles($event)"></app-header>
 
 <div class="home-page">
 
@@ -6,6 +8,7 @@
     <div class="container">
       <h1 class="logo-font">{{ title }}</h1>
       <p [innerHTML]="subtitle"></p>
+      <p>即將搜尋: {{ keyword }}</p>
     </div>
   </div>
 

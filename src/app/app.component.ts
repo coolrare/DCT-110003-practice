@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'conduit 123';
   subtitle = 'A place to share your <u>knowledge</u>.';
+  keyword = 'test';
   articles = [
     {
       "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
