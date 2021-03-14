@@ -1,6 +1,4 @@
-import { element } from 'protractor';
-import { Component, OnInit } from '@angular/core';
-import { typeWithParameters } from '@angular/compiler/src/render3/util';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +11,8 @@ export class HeaderComponent implements OnInit {
   isHighlight = false;
   fontSize = 12;
 
+  @Output() searchClick = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
@@ -20,8 +20,9 @@ export class HeaderComponent implements OnInit {
   }
 
   doSearch(event: MouseEvent) {
+    this.searchClick.emit(this.keyword);
     console.log(event);
-    this.keyword += '!';
+    // this.keyword += '!';
     this.isHighlight = !this.isHighlight;
     this.fontSize += 2;
   }
